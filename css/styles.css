@@ -87,7 +87,7 @@ body {
 	border-right: none;
 }
 
-/* game buttons */
+/* game buttons and text */
 .game_btn {
     float: left;
     margin: 20px;
@@ -105,4 +105,13 @@ body {
 .game_btn:hover {
   background-color: lightgreen;
   color: black;
+}
+
+#game_over {
+  float: center;
+  margin: 20px;
+  padding-top: 1vw;
+  color: black;
+  font-size: 4vw;
+  font-weight: bold;
 }

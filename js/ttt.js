@@ -38,6 +38,7 @@ window.addEventListener('load', function() {
     constructor(size) {
       this.size = size;
       this.spacesArray = [];
+      this.finished = false;
     }
 
     placeSpaces() {
@@ -94,6 +95,15 @@ window.addEventListener('load', function() {
       if (emptySpaces.length > 0) {
         return true;
       } else {
+        const board = document.getElementById('board');
+        const gameOver = document.createElement('div');
+
+        // add game over indicator
+        gameOver.id = 'game_over';
+        gameOver.innerText = 'Game over!'
+        board.appendChild(gameOver);
+        // set game to finished
+        this.finished = true;
         return false;
       }
     }
@@ -145,7 +155,10 @@ window.addEventListener('load', function() {
     htmlBoard.appendChild(clearBtn);
     htmlBoard.appendChild(themeBtn);
     htmlBoard.addEventListener('click', (e) => {
-      newBoard.checkForEmptySpaces();
+      // quick fix so button clicks don't cause space check
+      if((e.target !== clearBtn) && (e.target !== themeBtn) && !newBoard.finished) {
+        newBoard.checkForEmptySpaces();
+      }
     });
   };
 
@@ -163,7 +176,7 @@ window.addEventListener('load', function() {
 
   // add change theme listener and button
   themeBtn.addEventListener('click', () => {
-    
+
   });
 
 }, false);
