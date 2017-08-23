@@ -127,12 +127,23 @@ window.addEventListener('load', function() {
 
 
   const htmlBoard = document.getElementById('board');
+  const clearBtn = document.createElement('div');
+  const themeBtn = document.createElement('div');
+
+  clearBtn.id = 'clear_btn'
+  clearBtn.className = 'game_btn'
+  clearBtn.innerText = 'Clear';
+  themeBtn.id = 'theme_btn'
+  themeBtn.className = 'game_btn'
+  themeBtn.innerText = 'Theme';
 
   let createNewGame = () => {
     player = new Player();
     const newBoard = new Board(3);
 
     newBoard.placeSpaces();
+    htmlBoard.appendChild(clearBtn);
+    htmlBoard.appendChild(themeBtn);
     htmlBoard.addEventListener('click', (e) => {
       newBoard.checkForEmptySpaces();
     });
@@ -141,7 +152,18 @@ window.addEventListener('load', function() {
   createNewGame();
 
   // add clear board listener and button
+  clearBtn.addEventListener('click', () => {
+    // clear the board container
+    while (htmlBoard.firstChild) {
+      htmlBoard.removeChild(htmlBoard.firstChild);
+    }
+    // make new board and create new player object
+    createNewGame();
+  });
 
   // add change theme listener and button
+  themeBtn.addEventListener('click', () => {
+    
+  });
 
 }, false);
