@@ -7,17 +7,18 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: darkgray;
 }
 
 /* board */
 #board {
   text-align: center;
-	padding: 17vw 13vw;
+	padding: 13vw 13vw;
 }
 
 .board_row {
 	display: flex;
-	height: 27vw;
+	height: 23vw;
 	width: auto;
 }
 
@@ -64,7 +65,7 @@ body {
 	color: pink;*/
 	display: inline-block;
 	cursor: pointer;
-	background: no-repeat center/93% url('../assets/blank.png');
+	background: no-repeat center/80% url('../assets/blank.png');
 }
 
 .board_space:hover {
